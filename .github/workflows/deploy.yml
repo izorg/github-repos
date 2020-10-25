@@ -1,0 +1,39 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        id: nvmrc
+        run: echo "##[set-output name=NODE_VERSION;]$(cat .nvmrc)" # https://github.com/actions/setup-node/issues/32#issuecomment-525791142
+
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '${{ steps.nvmrc.outputs.NODE_VERSION }}'
+
+      - name: Setup
+        run: npm ci
+
+      - name: Check
+        run: tsc
+
+      - name: Build
+        run: |
+          npm run build -- --dist-dir dist
+          touch dist/.nojekyll
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: dist # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch

@@ -1,0 +1,30 @@
+@import "node_modules/@primer/octicons/index.scss";
+
+@import "node_modules/@primer/css/support/index.scss";
+@import "node_modules/@primer/css/alerts/index.scss";
+@import "node_modules/@primer/css/base/index.scss";
+@import "node_modules/@primer/css/box/index.scss";
+@import "node_modules/@primer/css/buttons/index.scss";
+@import "node_modules/@primer/css/loaders/index.scss";
+@import "node_modules/@primer/css/forms/form-control.scss";
+@import "node_modules/@primer/css/forms/form-select.scss";
+@import "node_modules/@primer/css/layout/index.scss";
+@import "node_modules/@primer/css/utilities/colors.scss";
+@import "node_modules/@primer/css/utilities/flexbox.scss";
+@import "node_modules/@primer/css/utilities/layout.scss";
+@import "node_modules/@primer/css/utilities/margin.scss";
+@import "node_modules/@primer/css/utilities/padding.scss";
+@import "node_modules/@primer/css/utilities/typography.scss";
+@import "node_modules/@primer/css/utilities/visibility-display.scss";
+
+.RepositoryListItem:not(.RepositoryListItem--starred) .btn--star[data-action="unstar"] {
+  display: none;
+}
+
+.RepositoryListItem--starred .btn--star[data-action="star"] {
+  display: none;
+}
+
+.RepositoryList--starred .RepositoryListItem:not(.RepositoryListItem--starred) {
+  display: none;
+}

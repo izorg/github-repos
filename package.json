@@ -1,0 +1,27 @@
+{
+  "name": "github-repos",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/izorg/github-repos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/izorg/github-repos/issues"
+  },
+  "homepage": "https://github.com/izorg/github-repos#readme",
+  "scripts": {
+    "build": "parcel build src/index.html --public-url .",
+    "start": "parcel serve src/index.html",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "@primer/css": "15.2.0",
+    "@primer/octicons": "11.0.0"
+  },
+  "devDependencies": {
+    "parcel": "2.0.0-nightly.430",
+    "prettier": "2.1.2",
+    "sass": "1.27.0",
+    "typescript": "4.0.3"
+  }
+}
